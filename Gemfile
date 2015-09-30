@@ -16,7 +16,7 @@ gem 'devise'
 gem 'faker'
 
 group :production do
-  gem 'pg', '>= 0.18.3'
+  gem 'pg'
 end
 
 group :development, :test do
