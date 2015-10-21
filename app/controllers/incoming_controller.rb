@@ -6,15 +6,17 @@ class IncomingController < ApplicationController
   def create
     @user = User.find_by(email: params[:sender])
     @topic = Topic.find_by(title: params[:subject])
-    @url = params["body-plain"]
+    @body = params["body-plain"]
 
-    
 
-    if @topic = nil
-      @topic = Topic.create(title: params[:subject], user_id: @user.id)
+
+    if @topic == nil
+      @topic = Topic.create!(title: params[:subject], user_id: @user.id)
     end
 
-    Bookmark.create(url: @url, topic_id: @topic.id)
+    @body.scan(/(https?:\/\/[\S]+)/) do |url|
+      Bookmark.create!(url: url.first, topic_id: @topic.id)      
+    end
 
     head 200
   end
