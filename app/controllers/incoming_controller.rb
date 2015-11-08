@@ -8,8 +8,6 @@ class IncomingController < ApplicationController
     @topic = Topic.find_by(title: params[:subject])
     @body = Topic.find_by(body: params["body-plain"])
 
-
-
     if @topic == nil
       @topic = Topic.create!(title: params[:subject], body: params["body-plain"], user_id: @user.id)
     end

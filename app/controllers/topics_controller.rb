@@ -13,7 +13,7 @@ class TopicsController < ApplicationController
   end
 
   def  create
-    @topic = Topic.new(params.require(:topic).permit(:title, :body))
+    @topic = Topic.new(params.require(:topic).permit(:title))
     if @topic.save
       flash[:notice] = "Topic was saved."
       redirect_to @topic
@@ -29,12 +29,24 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    if @topic.update_attributes(param.require(:topic).permit(:title, :body))
+    if @topic.update_attributes(params.require(:topic).permit(:title))
       flash[:notice] = "Topic was updated."
       redirect_to @topic
     else
       flash[:error] = "Ther was an error saving. Please try again."
       render :edit
+    end
+  end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+
+    if @topic.destroy
+      flash[:notice] = "\"#{@topic.title}\" was deleted."
+      redirect_to topics_path
+    else
+      flash[:error] = "There was an error deleting the topic."
+      render :show
     end
   end
 end
