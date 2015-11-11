@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'figaro'
 gem 'devise'
 gem 'faker'
+gem 'pundit'
 
 group :production do
   gem 'rails_12factor'
