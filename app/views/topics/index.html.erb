@@ -3,14 +3,12 @@
   <div class="col-md-4">
     <%= link_to "New", new_topic_path(@topic), class: 'btn btn-success' %>
   </div>
-</div>
+</div><br>
 
 <% @topics.each do |topic| %>
-  <div class="media">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to topic.title, topic %>
-      </h4>
+  <div class="col-xs-2">
+    <div class="img-thumbnail">
+      <%= link_to topic.title, topic %>
     </div>
   </div>
 <% end %>
