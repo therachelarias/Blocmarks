@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+    include Pundit
+
   def show
   end
 
