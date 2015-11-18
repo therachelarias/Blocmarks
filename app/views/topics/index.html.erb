@@ -6,9 +6,14 @@
 </div><br>
 
 <% @topics.each do |topic| %>
-  <div class="col-xs-2">
-    <div class="img-thumbnail">
-      <%= link_to topic.title, topic %>
+  <div class="media">
+    <div class="media-left no-padding">
+      <h2>#</h2>
+    </div>
+    <div class="media-body">
+      <div class="media-heading">
+        <h2><%= link_to topic.title, topic %></h2> 
+      </div>
     </div>
   </div>
 <% end %>

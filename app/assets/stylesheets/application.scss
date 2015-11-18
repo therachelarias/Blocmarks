@@ -5,6 +5,12 @@
    margin-top: 9px;
  }
  
- .nav {
-   margin-top: 5px;
- }
+.nav {
+  margin-top: 5px;
+}
+
+.media {
+  .media-left.no-padding {
+    padding-right: 0px;
+  }
+}

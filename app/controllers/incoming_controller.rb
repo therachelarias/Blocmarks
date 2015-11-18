@@ -6,10 +6,10 @@ class IncomingController < ApplicationController
   def create
     @user = User.find_by(email: params[:sender])
     @topic = Topic.find_by(title: params[:subject])
-    @body = Topic.find_by(body: params["body-plain"])
+    @body = params["body-plain"]
 
     if @topic == nil
-      @topic = Topic.create!(title: params[:subject], body: params["body-plain"], user_id: @user.id)
+      @topic = Topic.create!(title: params[:subject], user_id: @user.id)
     end
 
     @body.scan(/(https?:\/\/[\S]+)/) do |url|
