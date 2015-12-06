@@ -1,0 +1,2 @@
+class LikesPolicy < ApplicationPolicy
+end
