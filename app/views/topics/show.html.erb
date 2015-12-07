@@ -6,7 +6,7 @@
     <% @topic.bookmarks.each do |bookmark| %>
       <div class="media">
         <div class="media-left">
-          <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color: gold"></span>
+          <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
         </div>
         <div class="media-body">
           <div class="media-heading">
