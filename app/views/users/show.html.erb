@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>My Blocmarks</h1>
+  <div class="col-md-4">
+    <h2>Liked Bookmarks</h2>
+      <% @liked_bookmarks.each do |bookmark| %>
+        <%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
+        <%= link_to "#{@current_user.bookmark.url}", @current_user.bookmark.url %>
+      <% end %>
+  </div>
