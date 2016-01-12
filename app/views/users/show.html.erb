@@ -1,14 +1,12 @@
-<h1> My Blocmarks </h1>
-
-<h2> <%= @user.email %>'s Bookmarks </h2>
+<h1> <%= @user.email %>'s Bookmarks </h1>
 
   <div class="row">
     <% @user_bookmarks.each do |bookmark| %>
     <div class="col-sm-3">
       <div class="well bookmark_box">
         <%= bookmark.url %> <br>
-        <%= link_to "Delete Bookmark", bookmark, method: :delete, class: 'glyphicon glyphicon-remove-circle', data: { confirm: "Are you sure you want to delete this bookmark?" } %> <br>
-        <%= link_to "Edit Bookmark", edit_bookmark_path(bookmark), class: 'glyphicon glyphicon-pencil' %>
+        <%= link_to "Delete", bookmark, method: :delete, class: 'glyphicon glyphicon-remove', data: { confirm: "Are you sure you want to delete this bookmark?" } %> <br>
+        <%= link_to "Edit", edit_bookmark_path(bookmark), class: 'glyphicon glyphicon-pencil' %>
       </div>
       <div class="button_placement">
       <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
@@ -25,8 +23,8 @@ ______________________
   <div class="col-sm-3">
     <div class="well bookmark_box">
       <%= like.bookmark.url %> <br>
-      <%= link_to "Delete Bookmark", like.bookmark, method: :delete, class: 'glyphicon glyphicon-remove-circle', data: { confirm: "Are you sure you want to delete this bookmark?" } %> <br>
-      <%= link_to "Edit Bookmark", edit_bookmark_path(like.bookmark), class: 'glyphicon glyphicon-pencil' %>
+      <%= link_to "Delete", like.bookmark, method: :delete, class: 'glyphicon glyphicon-remove', data: { confirm: "Are you sure you want to delete this bookmark?" } %>
+      <%= link_to "Edit", edit_bookmark_path(like.bookmark), class: 'glyphicon glyphicon-pencil' %>
     </div>
     <div class="button_placement">
     <%= render partial: 'likes/like', locals: { bookmark: like.bookmark } %>
